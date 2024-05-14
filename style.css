@@ -24,7 +24,35 @@ main {
     text-align: center;
 }
 
+form {
+    margin-bottom: 2em;
+}
+
+label {
+    display: block;
+    margin-top: 1em;
+}
+
+input, select {
+    padding: 0.5em;
+    margin-top: 0.5em;
+    width: 100%;
+    max-width: 300px;
+}
+
 button {
     padding: 1em 2em;
+    margin-top: 1em;
     font-size: 1em;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: #e4e4e4;
+    margin: 0.5em 0;
+    padding: 0.5em;
 }

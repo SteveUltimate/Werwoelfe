@@ -16,6 +16,26 @@
     </header>
     <main>
         <div id="game">
+            <h2>Benutzer anlegen</h2>
+            <form id="user-form">
+                <label for="username">Benutzername:</label>
+                <input type="text" id="username" name="username" required>
+                
+                <label for="role">Rolle:</label>
+                <select id="role" name="role" required>
+                    <option value="hexe">Hexe</option>
+                    <option value="mädchen">Mädchen</option>
+                    <option value="jäger">Jäger</option>
+                    <option value="amor">Amor</option>
+                    <option value="seherin">Seherin</option>
+                    <option value="werwolf">Werwolf</option>
+                    <option value="dorfbewohner">Dorfbewohner</option>
+                </select>
+                
+                <button type="submit">Benutzer hinzufügen</button>
+            </form>
+            <h3>Spieler:</h3>
+            <ul id="player-list"></ul>
             <button id="start-game">Spiel starten</button>
         </div>
     </main>

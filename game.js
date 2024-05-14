@@ -1,32 +1,40 @@
+document.getElementById('user-form').addEventListener('submit', addUser);
 document.getElementById('start-game').addEventListener('click', startGame);
 
+let players = [];
+
+function addUser(event) {
+    event.preventDefault();
+    const username = document.getElementById('username').value;
+    const role = document.getElementById('role').value;
+
+    if (username && role) {
+        const player = {
+            name: username,
+            role: role
+        };
+        players.push(player);
+        updatePlayerList();
+        document.getElementById('user-form').reset();
+    }
+}
+
+function updatePlayerList() {
+    const playerList = document.getElementById('player-list');
+    playerList.innerHTML = '';
+    players.forEach(player => {
+        const li = document.createElement('li');
+        li.textContent = `${player.name} (${player.role})`;
+        playerList.appendChild(li);
+    });
+}
+
 function startGame() {
-    alert('Das Spiel beginnt!');
-    // Initialisierung des Spiels
-    // Implementieren Sie hier die Spielregeln und Logik
-}
-
-// Beispiel für das Starten des Spiels
-function initializeGame(players) {
-    let roles = assignRoles(players);
-    // Weitere Initialisierungen
-}
-
-function assignRoles(players) {
-    // Logik zum Zuweisen der Rollen
-    // Beispiel: 2 Werwölfe, 1 Seherin, Rest Dorfbewohner
-    let roles = [];
-    roles.push('Werwolf', 'Werwolf', 'Seherin');
-    for (let i = 3; i < players.length; i++) {
-        roles.push('Dorfbewohner');
+    if (players.length >= 8 && players.length <= 18) {
+        // Logik zum Starten des Spiels basierend auf den Spielern und deren Rollen
+        console.log('Spiel startet mit folgenden Spielern:', players);
+        alert('Das Spiel beginnt!');
+    } else {
+        alert('Das Spiel benötigt zwischen 8 und 18 Spieler.');
     }
-    return shuffleArray(roles);
-}
-
-function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
 }
